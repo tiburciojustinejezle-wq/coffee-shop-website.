@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cozy Brew Coffee Shop</title>
+
+    <style>
+
+        /* =========================
+           GENERAL STYLE
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #eee7dc;
+            padding: 40px 20px;
+        }
+
+        .menu-container {
+            max-width: 950px;
+            min-height: 900px;
+            margin: auto;
+            display: flex;
+            background-color: #d8c4a8;
+            border-radius: 35px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+        }
+
+
+        /* =========================
+           LEFT SIDE - DESSERTS
+        ========================== */
+
+        .desserts {
+            width: 35%;
+            background-color: #56382d;
+            color: white;
+            padding: 45px 30px;
+        }
+
+        .desserts h2 {
+            font-size: 35px;
+            margin-bottom: 45px;
+        }
+
+        .dessert-item {
+            margin-bottom: 55px;
+            text-align: center;
+        }
+
+        .dessert-icon {
+            font-size: 75px;
+            margin-bottom: 10px;
+        }
+
+        .dessert-item h3 {
+            font-size: 25px;
+        }
+
+        .dessert-item p {
+            margin-top: 5px;
+            color: #e8d6c2;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           RIGHT SIDE
+        ========================== */
+
+        .coffee-menu {
+            width: 65%;
+            padding: 55px;
+            color: #3b2922;
+        }
+
+
+        /* =========================
+           LOGO AND BRAND
+        ========================== */
+
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            width: 85px;
+            height: 85px;
+            background-color: #56382d;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .brand-info {
+            flex: 1;
+        }
+
+        .shop-name {
+            font-size: 52px;
+            margin-bottom: 5px;
+            color: #3c2821;
+        }
+
+        .tagline {
+            color: #75584a;
+        }
+
+
+        /* =========================
+           SHOP DESCRIPTION
+        ========================== */
+
+        .shop-description {
+            margin-top: 20px;
+            margin-bottom: 25px;
+            color: #604b40;
+            line-height: 1.7;
+            font-size: 15px;
+            text-align: justify;
+        }
+
+
+        /* =========================
+           CALL TO ACTION BUTTONS
+        ========================== */
+
+        .cta-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #56382d;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #3c2821;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =========================
+           MENU TITLE
+        ========================== */
+
+        .menu-title {
+            background-color: #56382d;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 30px;
+            margin-bottom: 35px;
+            letter-spacing: 2px;
+        }
+
+
+        /* =========================
+           COFFEE ITEMS
+        ========================== */
+
+        .coffee {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 35px;
+            border-bottom: 1px solid #b99f82;
+            padding-bottom: 25px;
+        }
+
+        .coffee-info {
+            width: 75%;
+        }
+
+        .coffee-name {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .coffee-name h3 {
+            font-size: 25px;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .description {
+            margin-top: 7px;
+            line-height: 1.5;
+            color: #604b40;
+        }
+
+        .coffee-icon {
+            font-size: 55px;
+            margin-left: 20px;
+        }
+
+
+        /* =========================
+           CONTACT SECTION
+        ========================== */
+
+        .contact-section {
+            margin-top: 40px;
+            background-color: #c9b294;
+            padding: 25px;
+            border-radius: 20px;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 20px;
+            color: #3c2821;
+        }
+
+        .contact-section p {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .contact-section a {
+            color: #56382d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-section a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           SOCIAL MEDIA
+        ========================== */
+
+        .social-media {
+            margin-top: 20px;
+        }
+
+        .social-media h3 {
+            margin-bottom: 12px;
+        }
+
+        .social-media a {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #75584a;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           MOBILE / PHONE
+        ========================== */
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .menu-container {
+                flex-direction: column;
+            }
+
+            .desserts,
+            .coffee-menu {
+                width: 100%;
+            }
+
+            .desserts {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                padding: 35px 20px;
+            }
+
+            .desserts h2 {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 35px;
+            }
+
+            .dessert-item {
+                width: 45%;
+                margin-bottom: 35px;
+            }
+
+            .dessert-icon {
+                font-size: 60px;
+            }
+
+            .coffee-menu {
+                padding: 35px 25px;
+            }
+
+            .brand-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                width: 75px;
+                height: 75px;
+                font-size: 40px;
+            }
+
+            .shop-name {
+                font-size: 38px;
+                text-align: center;
+            }
+
+            .tagline {
+                text-align: center;
+            }
+
+            .shop-description {
+                text-align: center;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .coffee-name h3 {
+                font-size: 21px;
+            }
+
+            .coffee-icon {
+                font-size: 45px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="menu-container">
+
+
+    <!-- =========================
+         DESSERT MENU
+    ========================== -->
+
+    <section class="desserts">
+
+        <h2>Desserts</h2>
+
+        <div class="dessert-item">
+            <div class="dessert-icon">🍰</div>
+            <h3>Cake</h3>
+            <p>₱150</p>
+        </div>
+
+        <div class="dessert-item">
+            <div class="dessert-icon">🥞</div>
+            <h3>Pancake</h3>
+            <p>₱120</p>
+        </div>
+
+        <div class="dessert-item">
+            <div class="dessert-icon">🍪</div>
+            <h3>Cookies</h3>
+            <p>₱80</p>
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         COFFEE SHOP
+    ========================== -->
+
+    <main class="coffee-menu">
+
+
+        <!-- LOGO & SHOP NAME -->
+
+        <div class="brand-section">
+
+            <div class="logo">
+                ☕
+            </div>
+
+            <div class="brand-info">
+
+                <h1 class="shop-name">
+                    Cozy Brew
+                </h1>
+
+                <p class="tagline">
+                    Coffee • Comfort • Conversation
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- BRIEF DESCRIPTION -->
+
+        <p class="shop-description">
+            Welcome to Cozy Brew, your cozy corner for freshly
+            brewed coffee and delicious desserts. We serve
+            comforting drinks and sweet treats made for relaxing
+            moments, friendly conversations, and good memories.
+        </p>
+
+
+        <!-- CALL TO ACTION BUTTONS -->
+
+        <div class="cta-buttons">
+
+            <a href="#contact" class="cta-button">
+                Order Now
+            </a>
+
+            <a href="#contact" class="cta-button">
+                Contact Us
+            </a>
+
+            <a href="#menu" class="cta-button">
+                Learn More
+            </a>
+
+        </div>
+
+
+        <!-- =========================
+             COFFEE MENU
+        ========================== -->
+
+        <div class="menu-title" id="menu">
+            COFFEE MENU
+        </div>
+
+
+        <!-- CAPPUCCINO -->
+
+        <div class="coffee">
+
+            <div class="coffee-info">
+
+                <div class="coffee-name">
+                    <h3>Cappuccino</h3>
+                    <span class="price">₱150</span>
+                </div>
+
+                <p class="description">
+                    A creamy coffee made with espresso,
+                    steamed milk, and a smooth layer of foam.
+                </p>
+
+            </div>
+
+            <div class="coffee-icon">☕</div>
+
+        </div>
+
+
+        <!-- ESPRESSO -->
+
+        <div class="coffee">
+
+            <div class="coffee-info">
+
+                <div class="coffee-name">
+                    <h3>Espresso</h3>
+                    <span class="price">₱100</span>
+                </div>
+
+                <p class="description">
+                    A strong and concentrated coffee with
+                    a rich and bold flavor.
+                </p>
+
+            </div>
+
+            <div class="coffee-icon">☕</div>
+
+        </div>
+
+
+        <!-- LATTE -->
+
+        <div class="coffee">
+
+            <div class="coffee-info">
+
+                <div class="coffee-name">
+                    <h3>Latte</h3>
+                    <span class="price">₱150</span>
+                </div>
+
+                <p class="description">
+                    Smooth espresso combined with steamed
+                    milk for a creamy and comforting drink.
+                </p>
+
+            </div>
+
+            <div class="coffee-icon">🥛</div>
+
+        </div>
+
+
+        <!-- AMERICANO -->
+
+        <div class="coffee">
+
+            <div class="coffee-info">
+
+                <div class="coffee-name">
+                    <h3>Americano</h3>
+                    <span class="price">₱120</span>
+                </div>
+
+                <p class="description">
+                    Espresso combined with water for a
+                    simple, smooth and refreshing coffee.
+                </p>
+
+            </div>
+
+            <div class="coffee-icon">🥤</div>
+
+        </div>
+
+
+        <!-- FRAPPE -->
+
+        <div class="coffee">
+
+            <div class="coffee-info">
+
+                <div class="coffee-name">
+                    <h3>Frappe</h3>
+                    <span class="price">₱160</span>
+                </div>
+
+                <p class="description">
+                    A cold blended coffee with a creamy
+                    texture and refreshing sweetness.
+                </p>
+
+            </div>
+
+            <div class="coffee-icon">🧋</div>
+
+        </div>
+
+
+        <!-- =========================
+             CONTACT INFORMATION
+        ========================== -->
+
+        <section class="contact-section" id="contact">
+
+            <h2>Visit Cozy Brew</h2>
+
+
+            <!-- ADDRESS -->
+
+            <p>
+                📍 <strong>Address:</strong>
+                <br>
+                Zamora, Cabarroguis, Quirino
+            </p>
+
+
+            <!-- PHONE -->
+
+            <p>
+                📞 <strong>Phone:</strong>
+                <br>
+
+                <a href="tel:+639123456789">
+                    +63 912 345 6789
+                </a>
+            </p>
+
+
+            <!-- SOCIAL MEDIA -->
+
+            <div class="social-media">
+
+                <h3>Follow Us</h3>
+
+                <a href="#">
+                    📘 Facebook
+                </a>
+
+                <a href="#">
+                    📷 Instagram
+                </a>
+
+                <a href="#">
+                    🎵 TikTok
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <div class="footer">
+
+            © 2026 Cozy Brew Coffee Shop
+
+            <br>
+
+            Coffee • Comfort • Conversation
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>
